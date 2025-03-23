@@ -5,11 +5,15 @@ the OpenAI Audio API.
 
 ## Setup
 
-```
-conda create -n audio-demo -y python=3.9
-conda activate audio-demo
-pip install -r requirements.txt
-```
+1. Rename `.env_template` to `.env` and paste your OpenAI API key.
+
+2. Run the commands:
+
+  ```
+  conda create -n audio-demo -y python=3.9
+  conda activate audio-demo
+  pip install -r requirements.txt
+  ```
 
 ## Files
 
