@@ -16,8 +16,8 @@ async def get_answer(prompt, tone_and_style_instructions):
         "role": "system", 
         "content": 
           f"""
-          The text you generate is being used in a text to voice model.
-          Make sure your answer match the guidelines {tone_and_style_instructions}.
+          The text you generate is being used in a text-to-voice model.
+          Make sure your answer matches the guidelines {tone_and_style_instructions}.
           """
       },
       {"role": "user", "content": prompt}
