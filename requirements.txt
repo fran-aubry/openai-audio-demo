@@ -3,3 +3,4 @@ numpy
 dotenv
 sounddevice
 scipy
+openai-agents[voice]
