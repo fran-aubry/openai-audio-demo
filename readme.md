@@ -24,3 +24,6 @@ the OpenAI Audio API.
 - `record_and_transcribe.py`: Show to combine audio recording with audio transcription.
 - `audio_assistant.py`: A basic audio-to-audio AI assistant.
 - `audio_assistant_improved.py`: An improved audio-to-audio AI assistant that better matches the tone instructions.
+- `agent_assistant.py`: A basic audio assistant using the agents API.
+- `agent_assistant_with_stop.py`: A basic audio assistant using the agents API with stop function.
+- `agent_assistant_with_handoff.py`: Example with agent handoff.
