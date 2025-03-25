@@ -16,17 +16,24 @@ from agents.voice import (
 from audio_player import AudioPlayer
 from audio_recorder import record_audio
 
-from agents import function_tool
-@function_tool
-def stop_conversation():
-  """Stop the conversation."""
-  exit()
+from agents.extensions.handoff_prompt import prompt_with_handoff_instructions
+
+spanish_agent = Agent(
+  name="Spanish voice assistant",
+  handoff_description="A spanish speaking agent.",
+  instructions=prompt_with_handoff_instructions(
+    "You're speaking to a human, so be polite and concise. Speak in Spanish.",
+  ),
+  model="gpt-4o-mini",
+)
 
 agent = Agent(
   name="Voice Assistant",
-  instructions="You're a helpful assistant speaking to a human.",
+  instructions=prompt_with_handoff_instructions("""
+    You're speaking to a human, so be polite and concise. 
+    If the user speaks in Spanish, handoff to the spanish agent.
+  """),
   model="gpt-4o-mini",
-  tools=[stop_conversation],
 )
 
 async def main():
