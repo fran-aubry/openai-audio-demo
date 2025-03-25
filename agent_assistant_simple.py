@@ -16,7 +16,7 @@ from audio_player import AudioPlayer
 agent = Agent(
   name="Assistant",
   instructions="""
-    Speak in an enthusiatic voice.
+    Speak in an enthusiastic voice.
   """,
   model="gpt-4o-mini",
 )
