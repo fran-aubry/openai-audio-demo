@@ -1,7 +1,11 @@
-from dotenv import load_dotenv
-load_dotenv()
 import asyncio
+import random
+from dotenv import load_dotenv
+
+load_dotenv()
+
 from agents import Agent
+from agents.extensions.handoff_prompt import prompt_with_handoff_instructions
 from agents.voice import (
     AudioInput,
     SingleAgentVoiceWorkflow,
@@ -9,16 +13,24 @@ from agents.voice import (
     VoicePipelineConfig,
     TTSModelSettings,
 )
-from audio_recorder import record_audio
-from audio_player import AudioPlayer
 
+from audio_player import AudioPlayer
+from audio_recorder import record_audio
+
+from agents import function_tool
+@function_tool
+def stop_conversation():
+  """Stop the conversation."""
+  exit()
 
 agent = Agent(
   name="Assistant",
   instructions="""
-    Speak in an enthusiastic voice.
+    You're speaking to a human, so be polite and concise. 
+    If the user speaks in Spanish, handoff to the spanish agent.
   """,
   model="gpt-4o-mini",
+  tools=[stop_conversation],
 )
 
 async def main():
